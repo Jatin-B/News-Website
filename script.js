@@ -1,5 +1,14 @@
-const API_KEY = 'bd3592f195ae47589a2861ba55b8d432';
-const url = "https://newsapi.org/v2/everything?q=";
+fetch('/.netlify/functions/getApiKey')
+  .then((response) => response.json())
+  .then((data) => {
+    const API_KEY = data.apiKey;
+    console.log('API Key:', API_KEY);
+    // Use the apiKey in your News API request
+    fetch(`https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`)
+      .then((res) => res.json())
+      .then((news) => console.log(news));
+  });
+;
 
 window.addEventListener("load", () => fetchNews("India"));
 

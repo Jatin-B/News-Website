@@ -1,4 +1,4 @@
-const API_KEY = process.env.API_KEY;
+const API_KEY = `${API_KEY}`;
 const url = "https://newsapi.org/v2/everything?q=";
 
 window.addEventListener("load", () => fetchNews("India"));
